@@ -1,0 +1,31 @@
+{
+    "ok": true,
+    "channel": "D04AZL33X6Y",
+    "ts": "1671072267.785279",
+    "message": {
+        "type": "message",
+        "subtype": "bot_message",
+        "text": "Hi Likki",
+        "ts": "1671072267.785279",
+        "username": "Sush",
+        "bot_id": "B04FA95NSKS",
+        "app_id": "A04EDULKJB0",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "8Roq",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hi Likki"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

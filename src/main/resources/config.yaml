@@ -1,0 +1,12 @@
+https:
+  port: "8082"
+
+  
+slack:
+  id: "18391327"
+  clientId: "2915173380.4489972664374"
+  clientSecret: "931489c9e93d8a90788315968ab4ca41"
+  scopes: "chat:write:bot"
+  callback: "/callback"
+  authorize: "/authorize"
+  externalCallback: "https://localhost:8082/callback"

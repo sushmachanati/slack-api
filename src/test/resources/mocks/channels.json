@@ -1,0 +1,74 @@
+[
+    {
+        "Name": "general",
+        "Id": "C02SX53C8"
+    },
+    {
+        "Name": "random",
+        "Id": "C02SX53CQ"
+    },
+    {
+        "Name": "trellos",
+        "Id": "C02SX62E6"
+    },
+    {
+        "Name": "dev",
+        "Id": "C02SXATU2"
+    },
+    {
+        "Name": "requirements",
+        "Id": "C0WABM1GQ"
+    },
+    {
+        "Name": "submissions",
+        "Id": "C0WGS4U0L"
+    },
+    {
+        "Name": "pge",
+        "Id": "C0XC1PZT4"
+    },
+    {
+        "Name": "morley-openlogix",
+        "Id": "C8F2H125A"
+    },
+    {
+        "Name": "suzukivin",
+        "Id": "CM5AH142X"
+    },
+    {
+        "Name": "suzuki-devs",
+        "Id": "CN83HQQ4W"
+    },
+    {
+        "Name": "sumopayroll-testing",
+        "Id": "C0158K83YRJ"
+    },
+    {
+        "Name": "sumopayroll-deploy",
+        "Id": "C02FRBYL133"
+    },
+    {
+        "Name": "mulesoft-latam-recruiting",
+        "Id": "C038RQ3D0KV"
+    },
+    {
+        "Name": "mulesoft-migration-interview-preparation",
+        "Id": "C039R63TG6P"
+    },
+    {
+        "Name": "mulesoft-knowledge-base",
+        "Id": "C03AMBTT15G"
+    },
+    {
+        "Name": "wawanesa",
+        "Id": "C03PQAN3APL"
+    },
+    {
+        "Name": "rpa-openlogix",
+        "Id": "C04ASD4SB45"
+    },
+    {
+        "Name": "askericanything",
+        "Id": "C04DTSW185Q"
+    }
+]

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:slack="http://www.mulesoft.org/schema/mule/slack"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/slack http://www.mulesoft.org/schema/mule/slack/current/mule-slack.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="slack-userFlow" doc:id="5bbb562d-73f8-413b-bd3e-fbc54b100eab" >
+		<slack:get-userslist doc:name="Users list" doc:id="2d53acc2-65a8-42fc-b66f-73cc8ade6eb9" config-ref="Slack_Connector_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="e51933af-1a6c-4978-a51a-d3c683d14b8e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload map ( value, index) ->
+{
+	"FullName" : value.real_name,
+	"TeamId" : value.team_id,
+	"UserId" : value.id
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

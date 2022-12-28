@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"
+	xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:slack="http://www.mulesoft.org/schema/mule/slack" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/slack http://www.mulesoft.org/schema/mule/slack/current/mule-slack.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	    <http:listener-config name="slack-api-httpListenerConfig">
+        <http:listener-connection host="0.0.0.0" port="${https.port}" protocol="HTTPS">
+			<tls:context >
+				<tls:key-store type="jks" path="mule.jks" keyPassword="password" password="passwordSlack" />
+			</tls:context>
+		</http:listener-connection>
+    </http:listener-config>
+    <apikit:config name="slack-api-config" api="resource::ecbea869-7eb1-4203-96d1-c279925b4408:slack-api:1.0.0:raml:zip:slack-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+	<slack:config name="Slack_Connector_Config" doc:name="Slack Connector Config" doc:id="a10069b2-93a3-4d39-8bdc-9251ae78efa0" >
+		<slack:slack-auth-connection >
+			<slack:oauth-authorization-code consumerKey="${slack.clientId}" consumerSecret="${slack.clientSecret}" scopes="${slack.scopes}" />
+			<slack:oauth-callback-config listenerConfig="slack-api-httpListenerConfig" callbackPath="${slack.callback}" authorizePath="${slack.authorize}" externalCallbackUrl="${slack.externalCallback}" />
+		</slack:slack-auth-connection>
+	</slack:config>
+	<api-gateway:autodiscovery ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="67e3e557-037f-4efc-b3ba-f408206fab23" flowRef="slack-api-console" apiId="${slack.id}"/>
+	<configuration-properties doc:name="Configuration properties" doc:id="3ad310ac-308f-40a1-bb48-eccd0ebc2928" file="config.yaml" />
+</mule>
